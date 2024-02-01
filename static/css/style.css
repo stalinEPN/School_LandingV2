@@ -808,7 +808,7 @@ a:hover {
   Team Styling
   ================================================== */
 .team h2 {
-  color: #199EB8;
+  color: #cb1111;
 }
 
 .team .col-sm-3 {
@@ -856,7 +856,7 @@ a:hover {
 }
 
 .team .card:hover .card-title-wrap {
-  background-color: #199EB8;
+  background-color: #fd1638;
 }
 
 .team .card:hover .card-title-wrap .card-title,
@@ -912,12 +912,12 @@ a:hover {
 
 #contact h2 {
   font-family: "Raleway", Helvetica, Arial, sans-serif;
-  color: #199EB8;
+  color: #b81919;
 }
 
 #contact .info i {
   font-size: 32px;
-  color: #199EB8;
+  color: #b81919;
   float: left;
   line-height: 0;
 }
@@ -984,11 +984,11 @@ a:hover {
 
 #contact .php-email-form input::focus,
 #contact .php-email-form textarea::focus {
-  background-color: #199EB8;
+  background-color: #b81919;
 }
 
 #contact .php-email-form button[type=submit] {
-  background: #199EB8;
+  background: #b8191c;
   border: 0;
   padding: 10px 24px;
   color: #fff;
@@ -1071,7 +1071,7 @@ a:hover {
 }
 
 .site-footer .credits a {
-  color: #199EB8;
+  color: #b81919;
 }
 
 /* ==================================================

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Bell Bootstrap Template</title>
+  <title>School Example</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -80,11 +80,11 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#about">Acerca de</a></li>
           <li><a class="nav-link scrollto" href="#welcome">Autoridades</a></li>
-          <li><a class="nav-link scrollto" href="#features">Features</a></li>
+          <li><a class="nav-link scrollto" href="#features">Nosotros</a></li>
           <!-- <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li> -->
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="#team">Consejo Estudiantil</a></li>
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -111,7 +111,6 @@
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
       </div>
     </div>
   </header><!-- End Header -->
@@ -202,7 +201,7 @@
 
       <div class="container">
         <h2 class="text-center">
-          Features
+          Nosotros
         </h2>
 
         <div class="row">
@@ -337,7 +336,7 @@
         <div class="row">
           <div class="col-lg-9 col-sm-12 text-lg-start text-center">
             <h2>
-              Call to Action Section
+              Mision
             </h2>
 
             <p>
@@ -345,9 +344,17 @@
               his, est eu idque dictas gubergren
             </p>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-9 col-sm-12 text-lg-start text-center">
+            <h2>
+              Vision
+            </h2>
 
-          <div class="col-lg-3 col-sm-12 text-lg-right text-center">
-            <a class="btn btn-ghost" href="#">Buy This Template</a>
+            <p>
+              Lorem ipsum dolor sit amet, nec ad nisl mandamus imperdiet, ut corpora cotidieque cum. Et brute iracundia
+              his, est eu idque dictas gubergren
+            </p>
           </div>
         </div>
       </div>
@@ -530,25 +537,24 @@
     <section class="team" id="team">
       <div class="container">
         <h2 class="text-center">
-          Meet our team
+          Consejo Estudiantil
         </h2>
 
         <div class="row">
           <div class="col-sm-3 col-xs-6">
             <div class="card card-block">
-              <a href="#"><img alt="" class="team-img" src="assets/img/team-1.jpg">
+              <a href="#"><img alt="" class="team-img" src="{{ url_for('static', filename='img/team-1.jpg') }}">
                 <div class="card-title-wrap">
-                  <span class="card-title">Sergio Fez</span> <span class="card-text">Art Director</span>
+                  <span class="card-title">Sergio Fez</span> <span class="card-text">Escolta</span>
                 </div>
 
                 <div class="team-over">
                   <h4 class="hidden-md-down">
-                    Connect with me
+                    Sergio Fez
                   </h4>
 
                   <nav class="social-nav">
-                    <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a> <a
-                      href="#"><i class="bi bi-linkedin"></i></a> <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a> 
                   </nav>
 
                   <p>
@@ -561,19 +567,18 @@
 
           <div class="col-sm-3 col-xs-6">
             <div class="card card-block">
-              <a href="#"><img alt="" class="team-img" src="assets/img/team-2.jpg">
+              <a href="#"><img alt="" class="team-img" src="{{ url_for('static', filename='img/team-2.jpg') }}">
                 <div class="card-title-wrap">
-                  <span class="card-title">Sergio Fez</span> <span class="card-text">Art Director</span>
+                  <span class="card-title">Sergio Fez</span> <span class="card-text">Abanderado</span>
                 </div>
 
                 <div class="team-over">
                   <h4 class="hidden-md-down">
-                    Connect with me
+                    Sergio Fez
                   </h4>
 
                   <nav class="social-nav">
-                    <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a> <a
-                      href="#"><i class="bi bi-linkedin"></i></a> <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a> 
                   </nav>
 
                   <p>
@@ -586,19 +591,18 @@
 
           <div class="col-sm-3 col-xs-6">
             <div class="card card-block">
-              <a href="#"><img alt="" class="team-img" src="assets/img/team-3.jpg">
+              <a href="#"><img alt="" class="team-img" src="{{ url_for('static', filename='img/team-3.jpg') }}">
                 <div class="card-title-wrap">
-                  <span class="card-title">Sergio Fez</span> <span class="card-text">Art Director</span>
+                  <span class="card-title">Sergio Fez</span> <span class="card-text">Abanderado</span>
                 </div>
 
                 <div class="team-over">
                   <h4 class="hidden-md-down">
-                    Connect with me
+                    Jon Doe
                   </h4>
 
                   <nav class="social-nav">
-                    <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a> <a
-                      href="#"><i class="bi bi-linkedin"></i></a> <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a> 
                   </nav>
 
                   <p>
@@ -611,19 +615,18 @@
 
           <div class="col-sm-3 col-xs-6">
             <div class="card card-block">
-              <a href="#"><img alt="" class="team-img" src="assets/img/team-4.jpg">
+              <a href="#"><img alt="" class="team-img" src="{{ url_for('static', filename='img/team-4.jpg') }}">
                 <div class="card-title-wrap">
-                  <span class="card-title">Sergio Fez</span> <span class="card-text">Art Director</span>
+                  <span class="card-title">Sergio Fez</span> <span class="card-text">Escolta</span>
                 </div>
 
                 <div class="team-over">
                   <h4 class="hidden-md-down">
-                    Connect with me
+                    Sergio Fez
                   </h4>
 
                   <nav class="social-nav">
-                    <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a> <a
-                      href="#"><i class="bi bi-linkedin"></i></a> <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a> 
                   </nav>
 
                   <p>
@@ -642,7 +645,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h2 class="section-title">Contact Us</h2>
+            <h2 class="section-title">Contactanos </h2>
           </div>
         </div>
 
@@ -651,7 +654,7 @@
             <div class="info">
               <div>
                 <i class="bi bi-geo-alt"></i>
-                <p>A108 Adam Street<br>New York, NY 535022</p>
+                <p>12 de octubre<br>Quito, Ecuador</p>
               </div>
 
               <div>
@@ -661,7 +664,7 @@
 
               <div>
                 <i class="bi bi-phone"></i>
-                <p>+1 5589 55488 55s</p>
+                <p>+593 96 476 6495</p>
               </div>
 
             </div>
@@ -687,7 +690,7 @@
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
                 </div>
-                <div class="text-center"><button type="submit">Send Message</button></div>
+                <div class="text-center"><button type="submit">Enviar Mensaje</button></div>
               </form>
             </div>
           </div>
@@ -706,7 +709,7 @@
 
           <div class="col-lg-6 col-xs-12 text-lg-start text-center">
             <p class="copyright-text">
-              &copy; Copyright <strong>Bell</strong>. All Rights Reserved
+              &copy; Copyright <strong>EPN</strong>. All Rights Reserved
             </p>
             <div class="credits">
               <!--
@@ -715,7 +718,7 @@
               Licensing information: https://bootstrapmade.com/license/
               Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Bell
             -->
-              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+              Designed by <a href="https://bootstrapmade.com/">Stalin Garcia, Vannessa Zurita</a>
             </div>
           </div>
 
@@ -726,11 +729,11 @@
               </li>
 
               <li class="list-inline-item">
-                <a href="#about">About Us</a>
+                <a href="#about">Acerca de</a>
               </li>
 
               <li class="list-inline-item">
-                <a href="#features">Features</a>
+                <a href="#features">Nosotros</a>
               </li>
 
               <li class="list-inline-item">
