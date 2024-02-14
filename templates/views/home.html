@@ -1,1 +1,470 @@
 {% extends './base.html' %}
+
+{% block title %}School Example{% endblock %}
+
+{% block customCSS %}{% endblock %}
+
+{% block Header %}
+
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex align-items-center">
+  <div class="container d-flex align-items-center">
+
+    <div id="logo" class="me-auto">
+      <a href="index.html"><img src="assets/img/logo-nav.png" alt=""></a>
+    </div>
+
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+        <li><a class="nav-link scrollto" href="#about">Acerca de</a></li>
+        <li><a class="nav-link scrollto" href="#welcome">Autoridades</a></li>
+        <li><a class="nav-link scrollto" href="#features">Nosotros</a></li>
+        <li><a class="nav-link scrollto" href="#team">Consejo Estudiantil</a></li>
+        <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="#">Drop Down 1</a></li>
+            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+              <ul>
+                <li><a href="#">Deep Drop Down 1</a></li>
+                <li><a href="#">Deep Drop Down 2</a></li>
+                <li><a href="#">Deep Drop Down 3</a></li>
+                <li><a href="#">Deep Drop Down 4</a></li>
+                <li><a href="#">Deep Drop Down 5</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Drop Down 2</a></li>
+            <li><a href="#">Drop Down 3</a></li>
+            <li><a href="#">Drop Down 4</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+    <div class="header-social-links d-flex align-items-center">
+      <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+    </div>
+  </div>
+</header><!-- End Header -->
+{% endblock %}
+
+{% block main %}
+
+
+<main id="main">
+
+  <!-- ======= About Section ======= -->
+  <section class="about" style="padding: 25px 0;" id="about">
+
+    <div class="container text-center">
+      <h2 style="margin-bottom: 15px;">
+        Sobre Nosotros
+      </h2>
+
+      <p>
+        "En la Escuela Politécnica Nacional (EPN), nos destacamos por la excelencia
+        educativa y la innovación. Con una sólida tradición en ciencias aplicadas,
+        tecnología e ingeniería, cultivamos un ambiente de aprendizaje colaborativo
+        y promovemos la investigación de vanguardia. Únete a nuestra comunidad diversa
+        en la EPN, donde la excelencia y la búsqueda constante de conocimiento son
+        nuestro distintivo."
+      </p>
+
+      <div class="slider-box">
+
+        <ul>
+          <li>
+            <img src="{{ url_for('static', filename='img/epn3.jpg') }}" alt="">
+
+          </li>
+          <li>
+            <img src="{{ url_for('static', filename='img/epn2.jpg') }}" alt="">
+          </li>
+          <li>
+            <img src="{{ url_for('static', filename='img/epn1.jpg') }}" alt="">
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section><!-- End About Section -->
+
+  <!-- ======= Welcome Section ======= -->
+  <div id="welcome" class="welcome text-center">
+
+    <h1>Autoridades</h1>
+
+    <div class="autoridades-container">
+
+      <container class="row autoridades" style="margin-right: 0px;">
+        <div class="col-md-3 person-container" style="margin-right: 20px;">
+          <img alt="Person 1" src="{{ url_for('static', filename='img/rector.png') }}" class="img-fluid">
+        </div>
+
+        <div class="col-md-3 text-container p-3">
+          <h2>Jon Doe</h2>
+          <h3>Rector</h3>
+          <p class="mb-0" style="text-align: left;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Est rerum culpa facilis debitis asperiores magnam harum dolorem corporis!
+            Suscipit non laudantium laborum, dolorem qui reprehenderit inventore alias
+            labore dicta ipsum?
+          </p>
+        </div>
+
+        <div class="col-md-3 text-container p-3">
+          <h2>Jane Doe</h2>
+          <h3>Vicerector</h3>
+          <p class="mb-0" style="text-align: right;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Est rerum culpa facilis debitis asperiores magnam harum dolorem corporis!
+            Suscipit non laudantium laborum, dolorem qui reprehenderit inventore alias
+            labore dicta ipsum?
+          </p>
+        </div>
+
+        <div class="col-md-3 person-container" style="margin-left: 20px; padding: 0px;">
+          <img alt="" src="{{ url_for('static', filename='img/vicerectora.png') }}" class="img-fluid">
+        </div>
+      </container>
+    </div>
+  </div><!-- End Welcome Section -->
+
+  <!-- ======= Features Section ======= -->
+  <section class="features" id="features">
+
+    <div class="container">
+      <h2 class="text-center">
+        Nosotros
+      </h2>
+
+      <div class="row">
+        <div class="feature-col col-lg-4 col-xs-12">
+          <div class="card card-block text-center">
+            <div>
+              <div class="feature-icon">
+                <i class="bi bi-briefcase"></i>
+              </div>
+            </div>
+
+            <div>
+              <h3>
+                Custom Design
+              </h3>
+
+              <p>
+                Eque feugiat contentiones ei has. Id summo mundi explicari his, nec in maiorum scriptorem.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-col col-lg-4 col-xs-12">
+          <div class="card card-block text-center">
+            <div>
+              <div class="feature-icon">
+                <i class="bi bi-card-checklist"></i>
+              </div>
+            </div>
+
+            <div>
+              <h3>
+                Responsive Layout
+              </h3>
+
+              <p>
+                Eque feugiat contentiones ei has. Id summo mundi explicari his, nec in maiorum scriptorem.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-col col-lg-4 col-xs-12">
+          <div class="card card-block text-center">
+            <div>
+              <div class="feature-icon">
+                <i class="bi bi-bar-chart"></i>
+              </div>
+            </div>
+
+            <div>
+              <h3>
+                Innovative Ideas
+              </h3>
+
+              <p>
+                Eque feugiat contentiones ei has. Id summo mundi explicari his, nec in maiorum scriptorem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="feature-col col-lg-4 col-xs-12">
+          <div class="card card-block text-center">
+            <div>
+              <div class="feature-icon">
+                <i class="bi bi-binoculars"></i>
+              </div>
+            </div>
+
+            <div>
+              <h3>
+                Good Documentation
+              </h3>
+
+              <p>
+                Eque feugiat contentiones ei has. Id summo mundi explicari his, nec in maiorum scriptorem.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-col col-lg-4 col-xs-12">
+          <div class="card card-block text-center">
+            <div>
+              <div class="feature-icon">
+                <i class="bi bi-brightness-high"></i>
+              </div>
+            </div>
+
+            <div>
+              <h3>
+                Excellent Features
+              </h3>
+
+              <p>
+                Eque feugiat contentiones ei has. Id summo mundi explicari his, nec in maiorum scriptorem.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-col col-lg-4 col-xs-12">
+          <div class="card card-block text-center">
+            <div>
+              <div class="feature-icon">
+                <i class="bi bi-calendar4-week"></i>
+              </div>
+            </div>
+
+            <div>
+              <h3>
+                Retina Ready
+              </h3>
+              <p>
+                Eque feugiat contentiones ei has. Id summo mundi explicari his, nec in maiorum scriptorem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Features Section -->
+
+  <!-- ======= Call to Action Section ======= -->
+  <section class="cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 col-sm-12 text-lg-start text-center">
+          <h2>
+            Mision
+          </h2>
+
+          <p>
+            Lorem ipsum dolor sit amet, nec ad nisl mandamus imperdiet, ut corpora cotidieque cum. Et brute iracundia
+            his, est eu idque dictas gubergren
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-9 col-sm-12 text-lg-start text-center">
+          <h2>
+            Vision
+          </h2>
+
+          <p>
+            Lorem ipsum dolor sit amet, nec ad nisl mandamus imperdiet, ut corpora cotidieque cum. Et brute iracundia
+            his, est eu idque dictas gubergren
+          </p>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Call to Action Section -->
+
+  <!-- ======= Team Section ======= -->
+  <section class="team" id="team">
+    <div class="container">
+      <h2 class="text-center">
+        Consejo Estudiantil
+      </h2>
+
+      <div class="row">
+        <div class="col-sm-3 col-xs-6">
+          <div class="card card-block">
+            <a href="#"><img alt="" class="team-img" src="{{ url_for('static', filename='img/team-1.jpg') }}">
+              <div class="card-title-wrap">
+                <span class="card-title">Sergio Fez</span> <span class="card-text">Escolta</span>
+              </div>
+
+              <div class="team-over">
+                <h4 class="hidden-md-down">
+                  Sergio Fez
+                </h4>
+
+                <nav class="social-nav">
+                  <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a>
+                </nav>
+
+                <p>
+                  Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-sm-3 col-xs-6">
+          <div class="card card-block">
+            <a href="#"><img alt="" class="team-img" src="{{ url_for('static', filename='img/team-2.jpg') }}">
+              <div class="card-title-wrap">
+                <span class="card-title">Sergio Fez</span> <span class="card-text">Abanderado</span>
+              </div>
+
+              <div class="team-over">
+                <h4 class="hidden-md-down">
+                  Sergio Fez
+                </h4>
+
+                <nav class="social-nav">
+                  <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a>
+                </nav>
+
+                <p>
+                  Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-sm-3 col-xs-6">
+          <div class="card card-block">
+            <a href="#"><img alt="" class="team-img" src="{{ url_for('static', filename='img/team-3.jpg') }}">
+              <div class="card-title-wrap">
+                <span class="card-title">Sergio Fez</span> <span class="card-text">Abanderado</span>
+              </div>
+
+              <div class="team-over">
+                <h4 class="hidden-md-down">
+                  Jon Doe
+                </h4>
+
+                <nav class="social-nav">
+                  <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a>
+                </nav>
+
+                <p>
+                  Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-sm-3 col-xs-6">
+          <div class="card card-block">
+            <a href="#"><img alt="" class="team-img" src="{{ url_for('static', filename='img/team-4.jpg') }}">
+              <div class="card-title-wrap">
+                <span class="card-title">Sergio Fez</span> <span class="card-text">Escolta</span>
+              </div>
+
+              <div class="team-over">
+                <h4 class="hidden-md-down">
+                  Sergio Fez
+                </h4>
+
+                <nav class="social-nav">
+                  <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a>
+                </nav>
+
+                <p>
+                  Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Team Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2 class="section-title">Contactanos </h2>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-4">
+          <div class="info">
+            <div>
+              <i class="bi bi-geo-alt"></i>
+              <p>12 de octubre<br>Quito, Ecuador</p>
+            </div>
+
+            <div>
+              <i class="bi bi-envelope"></i>
+              <p>info@example.com</p>
+            </div>
+
+            <div>
+              <i class="bi bi-phone"></i>
+              <p>+593 96 476 6495</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-5 col-md-8">
+          <div class="form">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Enviar Mensaje</button></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+{% endblock %}

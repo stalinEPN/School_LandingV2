@@ -1,0 +1,92 @@
+{% extends './base.html' %}
+
+{% block title %}404 no encontrado!{% endblock %}
+
+{% block customCSS %}
+
+{% endblock %}
+
+
+{% block Header %}
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex align-items-center">
+  <div class="container d-flex align-items-center">
+
+    <div id="logo" class="me-auto">
+      <a href="index.html"><img src="assets/img/logo-nav.png" alt=""></a>
+    </div>
+
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a class="nav-link scrollto active" href="{{ url_for('home') }}">Home</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+    <div class="header-social-links d-flex align-items-center">
+      <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+    </div>
+  </div>
+</header><!-- End Header -->
+{% endblock %}
+
+{% block main %}
+<!-- Agrega este formulario para cargar la imagen -->
+<section id="change-image" class="section-with-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <form method="post" action="/save-img" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="file" class="form-label">Seleccionar imagen</label>
+            <input type="file" class="form-control" id="file" name="file" accept="image/*" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Cargar y reemplazar imagen</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Agrega esto donde quieras mostrar el popup en tu plantilla -->
+<div id="success-toast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="d-flex">
+    <div class="toast-body">
+      {{ get_flashed_messages(category_filter=['success'])|first }}
+    </div>
+    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+</div>
+
+<div id="error-toast" class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="d-flex">
+    <div class="toast-body">
+      {{ get_flashed_messages(category_filter=['error'])|first }}
+    </div>
+    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block customJS %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Muestra el popup usando Bootstrap Toast
+          var toast = new bootstrap.Toast(document.getElementById('{{ category }}-toast'), {
+            delay: 3000  // Controla el tiempo que el mensaje permanece visible (en milisegundos)
+          });
+          toast.show();
+        });
+      </script>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+{% endblock %}
+</html>
