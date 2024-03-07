@@ -52,7 +52,7 @@ def editar_persona():
     else:
         ModelPersona.edit_persona_foto(persona)
 
-    return redirect(url_for('home'))
+    return redirect(url_for('changes'))
     
 
 
