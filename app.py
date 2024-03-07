@@ -9,6 +9,7 @@ from models.ModelPersona import ModelPersona
 from models.entities.Persona import Persona
 
 app = Flask(__name__)
+app.secret_key = 'B!1weNAt1T^%kvhUI*S^'
 
 @app.route('/')
 def index():
@@ -51,7 +52,7 @@ def editar_persona():
     else:
         ModelPersona.edit_persona_foto(persona)
 
-    return redirect(url_for('changes'))
+    return redirect(url_for('home'))
     
 
 
@@ -64,7 +65,7 @@ def status_404(error):
 if __name__ == '__main__':
     
     app.config.from_object(config['development'])
-    app.secret_key = 'B!1weNAt1T^%kvhUI*S^'
+    
     app.register_error_handler(404, status_404)
 
     app.run(debug=True)
