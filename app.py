@@ -22,7 +22,7 @@ def home():
 
     return render_template('views/home.html')
 
-@app.route('/changes')
+@app.route('/changes', methods=['GET','POST'])
 def changes():
     try:
         personas = ModelPersona.get_personas()
