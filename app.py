@@ -68,6 +68,7 @@ def status_404(error):
 if __name__ == '__main__':
     
     app.config.from_object(config['development'])
+    app.secret_key = 'B!1weNAt1T^%kvhUI*S^'
     app.register_error_handler(404, status_404)
 
     app.run(debug=True)
