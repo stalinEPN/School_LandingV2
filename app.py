@@ -1,9 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
-from werkzeug.utils import secure_filename
 from config import config
 import psycopg2
-import os
-#import base64
 
 #Models
 from models.ModelPersona import ModelPersona
@@ -45,7 +42,6 @@ def editar_persona():
         descripcion=request.form.get('Descripcion'),
         foto=None
     )
-    #foto=psycopg2.Binary((request.files['Foto']).read()) 
 
     if nuevaFoto.filename != '':
         persona.foto = psycopg2.Binary(nuevaFoto.read())
