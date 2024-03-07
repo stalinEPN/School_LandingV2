@@ -1,7 +1,6 @@
 from database.db import get_connection
 from .entities.Persona import Persona
 from flask import flash
-from flask_sqlalchemy import SQLAlchemy
 from psycopg2 import IntegrityError
 
 class ModelPersona():
@@ -30,7 +29,7 @@ class ModelPersona():
       conn = get_connection()
       cursor = conn.cursor()
       sql = "UPDATE personas SET nombre = %s, apellido = %s, descripcion = %s WHERE id = %s"
-      params = (p.nombre, p.apellido, p.descripcio, p.id)
+      params = (p.nombre, p.apellido, p.descripcion, p.id)
       cursor.execute(sql, params)
       conn.commit()
       flash("Guardado correctamente", "success")

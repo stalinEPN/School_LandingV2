@@ -34,14 +34,21 @@ def changes():
     
 @app.route('/editar', methods=['POST'])
 def editar_persona():
+
+    nuevaFoto = request.files['Foto']
+
     persona = Persona(
         id=request.form.get('id'),
         cargo='',
         nombre=request.form.get('Nombre'),
         apellido=request.form.get('Apellido'),
         descripcion=request.form.get('Descripcion'),
-        foto=psycopg2.Binary((request.files['Foto']).read()) 
+        foto=None
     )
+    #foto=psycopg2.Binary((request.files['Foto']).read()) 
+
+    if nuevaFoto.filename != '':
+        persona.foto = psycopg2.Binary(nuevaFoto.read())
 
     if persona.foto is None:
         ModelPersona.edit_persona_Nofoto(persona)
