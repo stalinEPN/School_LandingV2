@@ -1,17 +1,17 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from werkzeug.utils import secure_filename
 from config import config
+import psycopg2
 import os
+#import base64
+
+#Models
+from models.ModelPersona import ModelPersona
+
+#Entities
+from models.entities.Persona import Persona
 
 app = Flask(__name__)
-
-#directorio donde se almacenaran las imagenes
-UPLOAD_FOLDER = 'static/img'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-def imagen_formatos(filename):
-    
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in {'png', 'jpg', 'jpeg', 'gif'}
 
 @app.route('/')
 def index():
@@ -24,29 +24,34 @@ def home():
 
 @app.route('/changes')
 def changes():
-    return render_template('views/changes.html')
+    try:
+        personas = ModelPersona.get_personas()
+        return render_template('views/changes.html', personas=personas)
+    except Exception as ex:
+        # Manejar la excepción según tus necesidades
+        #return render_template('views/404.html')
+        raise Exception(ex)
+    
+@app.route('/editar', methods=['POST'])
+def editar_persona():
+    persona = Persona(
+        id=request.form.get('id'),
+        cargo='',
+        nombre=request.form.get('Nombre'),
+        apellido=request.form.get('Apellido'),
+        descripcion=request.form.get('Descripcion'),
+        foto=psycopg2.Binary((request.files['Foto']).read()) 
+    )
 
-@app.route('/save-img', methods=['POST'])
-def saveImg():
-    if request.method == 'POST':
-        # Verifica si se ha enviado un archivo
-        if 'file' not in request.files:
-            flash('No se seleccionó ningún archivo')
-            return redirect(url_for('changes'))
-        
-        file = request.files['file']
+    if persona.foto is None:
+        ModelPersona.edit_persona_Nofoto(persona)
+    else:
+        ModelPersona.edit_persona_foto(persona)
 
-        # Verifica si el archivo tiene un nombre y la extensión permitida
-        if file.filename == '':
-            flash('No se seleccionó ningún archivo')
-            return redirect(url_for('changes'))
-        
-        if file and imagen_formatos(file.filename):
-            # Guarda el archivo en el directorio UPLOAD_FOLDER
-            filename = 'rector.png'  # Mantén el nombre igual al archivo original
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            flash('Imagen reemplazada con éxito', 'success')
-            return redirect(url_for('changes'))
+    return redirect(url_for('changes'))
+    
+
+
 
 
 @app.errorhandler(404)
@@ -57,6 +62,5 @@ if __name__ == '__main__':
     
     app.config.from_object(config['development'])
     app.register_error_handler(404, status_404)
-
 
     app.run(debug=True)

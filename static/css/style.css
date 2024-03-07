@@ -84,7 +84,7 @@ a:hover {
 /* ==================================================
   Elements
   ================================================== */
-.btn {
+.btnn {
   background-color: #ff1616;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 800;
@@ -93,21 +93,21 @@ a:hover {
   border-radius: 50px;
 }
 
-.btn:hover {
+.btnn:hover {
   background-color: #E04F00;
   color: #fff;
 }
 
-.btn:focus {
+.btnn:focus {
   color: #fff;
 }
 
-.btn-ghost {
+.btnn-ghost {
   border: 3px solid #fff;
   background-color: transparent;
 }
 
-.btn-ghost:hover {
+.btnn-ghost:hover {
   background-color: #fff;
   color: #ff1616;
 }
@@ -1065,4 +1065,35 @@ a:hover {
     padding-left: 30px;
     padding-right: 30px;
   }
+}
+
+.main-content {
+  margin-top: 40px;
+  padding: 20px;
+  overflow-y: scroll;
+  height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
+
+.content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid slategray; 
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.3);
+}
+
+.content h1, .content h2 {
+  color: #ab1f1f;
+  font-weight: bold;
+}
+
+.content ul, .content p {
+  color: #2629d8;
+  font-weight: bold;
+}
+
+.Pfoto {
+  width: 100px;
+  height: auto;
 }

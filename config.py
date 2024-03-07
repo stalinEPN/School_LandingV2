@@ -1,5 +1,6 @@
+from decouple import config
 class Config:
-    SECRET_KEY = 'B!1weNAt1T^%kvhUI*S^'
+    SECRET_KEY = config('SECRET_KEY')
     
 class DevelopmentConfig(Config):
     DEBUG=True
