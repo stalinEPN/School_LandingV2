@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.code-workspace
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Compiled Python files
+*.pyc
+*.pyo
+
+# Cache files
+*.pyc
+
+# Local configuration
+.DS_Store
+
+
+# Log files
+logs/
+*.log

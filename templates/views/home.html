@@ -104,33 +104,27 @@
 
       <container class="row autoridades" style="margin-right: 0px;">
         <div class="col-md-3 person-container" style="margin-right: 20px;">
-          <img alt="Person 1" src="{{ url_for('static', filename='img/rector.png') }}" class="img-fluid">
+          <img alt="Person 1" src="data:image/png;base64,{{ personas[0]['foto'] }}" class="img-fluid">
         </div>
 
         <div class="col-md-3 text-container p-3">
-          <h2>Jon Doe</h2>
-          <h3>Rector</h3>
+          <h2>{{ personas[0]['nombre'] }} {{ personas[0]['apellido'] }}</h2>
+          <h3>{{ personas[0]['cargo'] }}</h3>
           <p class="mb-0" style="text-align: left;">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Est rerum culpa facilis debitis asperiores magnam harum dolorem corporis!
-            Suscipit non laudantium laborum, dolorem qui reprehenderit inventore alias
-            labore dicta ipsum?
+            {{ personas[0]['descripcion'] }}
           </p>
         </div>
 
         <div class="col-md-3 text-container p-3">
-          <h2>Jane Doe</h2>
-          <h3>Vicerector</h3>
+          <h2>{{ personas[1]['nombre'] }} {{ personas[1]['apellido'] }}</h2>
+          <h3>{{ personas[1]['cargo'] }}</h3>
           <p class="mb-0" style="text-align: right;">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Est rerum culpa facilis debitis asperiores magnam harum dolorem corporis!
-            Suscipit non laudantium laborum, dolorem qui reprehenderit inventore alias
-            labore dicta ipsum?
+            {{ personas[1]['descripcion'] }}
           </p>
         </div>
 
         <div class="col-md-3 person-container" style="margin-left: 20px; padding: 0px;">
-          <img alt="" src="{{ url_for('static', filename='img/vicerectora.png') }}" class="img-fluid">
+          <img alt="" src="data:image/png;base64,{{ personas[1]['foto'] }}" class="img-fluid">
         </div>
       </container>
     </div>
@@ -310,19 +304,15 @@
       <div class="row">
         <div class="col-sm-3 col-xs-6">
           <div class="card card-block">
-            <a href="#"><img alt="" class="team-img" src="{{ url_for('static', filename='img/team-1.jpg') }}">
+            <a href="#"><img alt="" class="team-img" src="data:image/png;base64,{{ personas[2]['foto'] }}">
               <div class="card-title-wrap">
-                <span class="card-title">Sergio Fez</span> <span class="card-text">Escolta</span>
+                <span class="card-title">{{ personas[2]['nombre'] }} {{ personas[2]['apellido'] }}</span> <span class="card-text">{{ personas[2]['cargo'] }}</span>
               </div>
 
               <div class="team-over">
                 <h4 class="hidden-md-down">
-                  Sergio Fez
+                  {{ personas[2]['nombre'] }} {{ personas[2]['apellido'] }}
                 </h4>
-
-                <nav class="social-nav">
-                  <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a>
-                </nav>
 
                 <p>
                   Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
@@ -334,19 +324,34 @@
 
         <div class="col-sm-3 col-xs-6">
           <div class="card card-block">
-            <a href="#"><img alt="" class="team-img" src="{{ url_for('static', filename='img/team-2.jpg') }}">
+            <a href="#"><img alt="" class="team-img" src="data:image/png;base64,{{ personas[3]['foto'] }}">
               <div class="card-title-wrap">
-                <span class="card-title">Sergio Fez</span> <span class="card-text">Abanderado</span>
+                <span class="card-title">{{ personas[3]['nombre'] }} {{ personas[3]['apellido'] }}</span> <span class="card-text">{{ personas[3]['cargo'] }}</span>
               </div>
 
               <div class="team-over">
                 <h4 class="hidden-md-down">
-                  Sergio Fez
+                  {{ personas[3]['nombre'] }} {{ personas[3]['apellido'] }}
                 </h4>
+                <p>
+                  Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
 
-                <nav class="social-nav">
-                  <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a>
-                </nav>
+        <div class="col-sm-3 col-xs-6">
+          <div class="card card-block">
+            <a href="#"><img alt="" class="team-img" src="data:image/png;base64,{{ personas[4]['foto'] }}">
+              <div class="card-title-wrap">
+                <span class="card-title">{{ personas[4]['nombre'] }} {{ personas[4]['apellido'] }}</span> <span class="card-text">{{ personas[4]['cargo'] }}</span>
+              </div>
+
+              <div class="team-over">
+                <h4 class="hidden-md-down">
+                  {{ personas[4]['nombre'] }} {{ personas[4]['apellido'] }}
+                </h4>
 
                 <p>
                   Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
@@ -358,43 +363,15 @@
 
         <div class="col-sm-3 col-xs-6">
           <div class="card card-block">
-            <a href="#"><img alt="" class="team-img" src="{{ url_for('static', filename='img/team-3.jpg') }}">
+            <a href="#"><img alt="" class="team-img" src="data:image/png;base64,{{ personas[5]['foto'] }}">
               <div class="card-title-wrap">
-                <span class="card-title">Sergio Fez</span> <span class="card-text">Abanderado</span>
+                <span class="card-title">{{ personas[5]['nombre'] }} {{ personas[5]['apellido'] }}</span> <span class="card-text">{{ personas[5]['cargo'] }}</span>
               </div>
 
               <div class="team-over">
                 <h4 class="hidden-md-down">
-                  Jon Doe
+                  {{ personas[5]['nombre'] }} {{ personas[5]['apellido'] }}
                 </h4>
-
-                <nav class="social-nav">
-                  <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a>
-                </nav>
-
-                <p>
-                  Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.
-                </p>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-sm-3 col-xs-6">
-          <div class="card card-block">
-            <a href="#"><img alt="" class="team-img" src="{{ url_for('static', filename='img/team-4.jpg') }}">
-              <div class="card-title-wrap">
-                <span class="card-title">Sergio Fez</span> <span class="card-text">Escolta</span>
-              </div>
-
-              <div class="team-over">
-                <h4 class="hidden-md-down">
-                  Sergio Fez
-                </h4>
-
-                <nav class="social-nav">
-                  <a href="#"><i class="bi bi-twitter"></i></a> <a href="#"><i class="bi bi-facebook"></i></a>
-                </nav>
 
                 <p>
                   Lorem ipsum dolor sit amet, eu sed suas eruditi honestatis.

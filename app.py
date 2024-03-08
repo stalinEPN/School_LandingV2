@@ -17,8 +17,8 @@ def index():
 
 @app.route('/home')
 def home():
-
-    return render_template('views/home.html')
+    personas = ModelPersona.get_personas()
+    return render_template('views/home.html', personas=personas)
 
 @app.route('/changes', methods=['GET','POST'])
 def changes():

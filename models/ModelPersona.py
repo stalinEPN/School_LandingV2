@@ -12,7 +12,7 @@ class ModelPersona():
       personas = []
 
       with conn.cursor() as cursor:
-        cursor.execute('SELECT * FROM personas')
+        cursor.execute('SELECT * FROM personas ORDER BY id')
         resultset = cursor.fetchall()
 
         for row in resultset:
