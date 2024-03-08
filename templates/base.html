@@ -51,7 +51,7 @@
     <div class="container text-center">
       <div class="row">
         <div class="col-md-12">
-          <a class="hero-brand" href="index.html" title="Home"><img alt="Bell Logo"
+          <a class="hero-brand" href="{{ url_for('home') }}" title="Home"><img alt="School Logo"
               src="{{url_for('static', filename='img/logo.png')}}"></a>
         </div>
       </div>
@@ -64,7 +64,7 @@
         <p class="tagline">
           Proyecto pagina web para escuelas
         </p>
-        <a class="btnn btn-full scrollto" href="#about">Empezar</a>
+        <a class="btnn btn-full scrollto" href="{{ url_for('home') + '#about' }}">Empezar</a>
       </div>
     </div>
 
@@ -95,27 +95,23 @@
           <div class="col-lg-6 col-xs-12 text-lg-right text-center">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="index.html">Home</a>
+                <a href="{{ url_for('home') }}">Home</a>
               </li>
 
               <li class="list-inline-item">
-                <a href="#about">Acerca de</a>
+                <a href="{{ url_for('home') + '#about' }}">Acerca de</a>
               </li>
 
               <li class="list-inline-item">
-                <a href="#features">Nosotros</a>
+                <a href="{{ url_for('home') + '#features' }}">Nosotros</a>
+              </li>
+              
+              <li class="list-inline-item">
+                <a href="{{ url_for('home') + '#team' }}">Consejo Estudiantil</a>
               </li>
 
               <li class="list-inline-item">
-                <a href="#portfolio">Portfolio</a>
-              </li>
-
-              <li class="list-inline-item">
-                <a href="#team">Team</a>
-              </li>
-
-              <li class="list-inline-item">
-                <a href="#contact">Contact</a>
+                <a href="{{ url_for('home') + '#contact' }}">Contactos</a>
               </li>
             </ul>
           </div>
@@ -132,7 +128,6 @@
   <script src="{{ url_for('static', filename='vendor/purecounter/purecounter_vanilla.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
   {% block customJS %}{% endblock %}

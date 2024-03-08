@@ -8,6 +8,9 @@ from models.ModelPersona import ModelPersona
 #Entities
 from models.entities.Persona import Persona
 
+#apis
+from api.GmailMailer import GmailMailer
+
 app = Flask(__name__)
 app.secret_key = 'B!1weNAt1T^%kvhUI*S^'
 
@@ -53,10 +56,25 @@ def editar_persona():
         ModelPersona.edit_persona_foto(persona)
 
     return redirect(url_for('changes'))
+
+@app.route('/contactos', methods=['GET','POST'])
+def enviar_email():
+    sender = GmailMailer('school.exampleepn@gmail.com', 'empm sgha qhvw asmu')
+    name = request.form.get('name')
+    yemail = request.form.get('email')
+    subject = request.form.get('subject')
+    message = request.form.get('message')
+
+    mail_body = f"""
+                Nombre del remitente: {name}
+                Email del remitente: {yemail}
+                Razon: {subject}
+                Mensaje: \n\n{message}
+                """
     
-
-
-
+    sender.enviar_correo('school.exampleepn@gmail.com', subject, mail_body)
+    
+    return redirect(url_for('home')+'#contact')
 
 @app.errorhandler(404)
 def status_404(error):
