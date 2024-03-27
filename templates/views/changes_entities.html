@@ -1,0 +1,186 @@
+{% extends './base.html' %}
+
+{% block title %}Editar Personas{% endblock %}
+
+{% block customCSS %}
+<style>
+  .btn-custom{
+    padding-bottom: 0.5rem;
+  }
+</style>
+
+{% endblock %}
+
+
+{% block Header %}
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex align-items-center">
+  <div class="container d-flex align-items-center">
+
+    <div id="logo" class="me-auto">
+      <a href="index.html"><img src="assets/img/logo-nav.png" alt=""></a>
+    </div>
+
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+        <li><a class="nav-link scrollto active" href="{{ url_for('home') }}">Home</a></li>
+        <li><a class="nav-link scrollto active" href="{{ url_for('logout') }}">Cerrar Sesión</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+    <div class="header-social-links d-flex align-items-center">
+      <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+    </div>
+  </div>
+</header><!-- End Header -->
+{% endblock %}
+
+{% block main %}
+
+
+<div class="fles-fill">
+  <div class="main-content">
+    
+    
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="images">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container mt-4">
+      <div class="btn-custom">
+        <a href="{{ url_for('changes') }}" class="btn btn-danger">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+            <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1"></path>
+          </svg>
+          Atras
+        </a>
+      </div>
+      <div class="content">
+        <h1>Entidades de la Institución</h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ messages[0] }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        {% endwith %}
+        <br>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Cargo</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Descipcion</th>
+                <th>Foto</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for persona in personas %}
+              <tr>
+                <td>{{ persona.id }}</td>
+                <td>{{ persona.cargo }}</td>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.apellido }}</td>
+                <td class="text-truncate" style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;"
+                data-bs-toggle="tooltip" title="{{ persona.descripcion }}">{{ persona.descripcion }}</td>
+                <td><img class="Pfoto" src="data:image/png;base64,{{ persona.foto }}" alt="Foto"></td>
+                <td>
+                  <button class="btn btn-primary" id="btn-edit{{ persona.id}}" data-bs-toggle="modal"
+                    data-bs-target="#modal{{ persona.id }}">
+                    Editar
+                  </button>
+                </td>
+              </tr>
+              <div class="modal fade" id="modal{{ persona.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Editar {{ persona.cargo }}</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </div>
+                    <div class="modal-body">
+                      <form action="/editar" method="post" enctype="multipart/form-data"
+                        id="formEditar{{ persona.id }}">
+                        <div class="mb-3">
+                          <label for="Nombre" class="form-label">Nombre:</label>
+                          <input type="text" class="form-control" id="Nombre" name="Nombre" value="{{ persona.nombre }}"
+                            required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="Apellido" class="form-label">Apellido:</label>
+                          <input type="text" class="form-control" id="Apellido" name="Apellido"
+                            value="{{ persona.apellido }}" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="Descripcion" class="form-label">Descripción:</label>
+                          <input type="text" class="form-control" id="Descripcion" name="Descripcion"
+                            value="{{ persona.descripcion }}" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                          <label for="Foto{{ persona.id }}" class="form-label">Cargar nueva foto (PNG):</label>
+                          <input type="file" class="form-control" id="Foto" name="Foto"
+                            accept="image/png" onchange="mostrarNuevaFoto('{{ persona.id }}')">
+                        </div>
+                        <div class="mb-3">
+                          <!-- Mostrar la foto actual -->
+                          <img class="Pfoto" id="fotoActual{{ persona.id }}"
+                            src="data:image/png;base64,{{ persona.foto }}" alt="Foto actual">
+                        </div>
+
+                        <input type="hidden" name="id" value="{{ persona.id }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block customJS %}
+<script>
+  // Función para mostrar la nueva foto al seleccionar un archivo
+  function mostrarNuevaFoto(personaId) {
+    var inputNuevaFoto = document.getElementById('Foto');
+    var fotoActual = document.getElementById('fotoActual' + personaId);
+
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      // Actualizar la imagen en la interfaz
+      fotoActual.src = e.target.result;
+    };
+
+    // Leer el contenido del archivo seleccionado
+    reader.readAsDataURL(inputNuevaFoto.files[0]);
+  }
+</script>
+{% endblock %}
+
+</html>

