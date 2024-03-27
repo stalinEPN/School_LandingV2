@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 from config import config
 import psycopg2
 from flask_wtf.csrf import CSRFProtect
+import flask_wtf.csrf as clave
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
 
@@ -30,7 +31,7 @@ login_manager_app = LoginManager(app)
 
 def obtener_csrf_token():
     # Obtener el token CSRF de la solicitud actual
-    csrf_token = csrf_token()
+    csrf_token = clave.generate_csrf()
     return csrf_token
 
 @login_manager_app.user_loader
