@@ -5,10 +5,7 @@ from flask_wtf.csrf import CSRFProtect
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
 
-def obtener_csrf_token():
-    # Obtener el token CSRF de la solicitud actual
-    csrf_token = csrf.generate_csrf()
-    return csrf_token
+
 
 
 #Models
@@ -29,6 +26,12 @@ app = Flask(__name__)
 app.secret_key = 'B!1weNAt1T^%kvhUI*S^'
 csrf = CSRFProtect()
 login_manager_app = LoginManager(app)
+
+
+def obtener_csrf_token():
+    # Obtener el token CSRF de la solicitud actual
+    csrf_token = csrf_token()
+    return csrf_token
 
 @login_manager_app.user_loader
 def load_user(id):
