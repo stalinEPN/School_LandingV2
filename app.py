@@ -140,7 +140,7 @@ def enviar_email():
     return redirect(url_for('home')+'#contact')
 
 
-@app.route('/facebook')
+@app.route('/facebook', methods=['GET','POST'])
 def facebook():
     csrf_token = obtener_csrf_token()
     return render_template('views/fbView.html', csrf_token=csrf_token)

